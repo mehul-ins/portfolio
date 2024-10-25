@@ -3,8 +3,8 @@ import image from '../assets/images/profile.jpeg'
 export default function Home() {
   return (
     <>
-    <div className=" h-lvh flex justify-center gap-7 pt-32">
-      <div className="flex flex-col h-96 justify-center gap-4"> 
+    <div className="flex justify-center gap-7 p-32">
+      <div className="flex flex-col justify-center gap-4"> 
         <p className="text-white text-4xl">Hi</p>
         <p>
           <span className="text-white text-7xl">I'm </span>
