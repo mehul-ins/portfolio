@@ -19,7 +19,7 @@ export default function Connect() {
                 >
                    <i class='bx bxl-instagram text-[#3d444d] text-4xl hover:text-white' ></i>
                 </a>
-                <a className="" href="">
+                <a className="" href=" https://x.com/mehul_vig?t=xAU4gLfRVOIwQstBnVVf7A&s=08">
                 <i class='bx bxl-twitter text-[#3d444d] text-4xl hover:text-white'></i>
                 </a>
             </div>
