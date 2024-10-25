@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "serve": "vite preview",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "start": "vite preview"
+    "preview": "vite preview"
+
   },
   "dependencies": {
     "autoprefix": "^1.0.1",
