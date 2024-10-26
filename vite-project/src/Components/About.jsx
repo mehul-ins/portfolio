@@ -14,26 +14,12 @@ function Card({ title, image, event, role }) {
   )
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default function About() {
   return (
     <>
       <div className='h-100' id='about-me'>
         <p className='text-3xl p-7'>Experience</p>
-        <div className='flex justify-center'>
+        <div className='flex justify-center items-center flex-col sm:flex-row'>
           <Card title="Volunteer"
             image={sih}
             event="Smart India Hackathon"
@@ -55,19 +41,19 @@ export default function About() {
 
       <p className='text-3xl p-7'>Tech Stack</p>
       <div className='flex justify-center'>
-        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center items-center hover:cursor-pointer'>
+        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center items-center hover:cursor-pointer hover:bg-transparent hover:border-2 hover:shadow-lg hover:shadow-[rgb(25,104,31)]'>
           <i class='bx bxl-react text-blue-400 text-7xl'></i>
         </div>
 
-        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center items-center hover:cursor-pointer'>
+        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center items-center hover:bg-transparent hover:border-2 hover:cursor-pointer hover:shadow-lg hover:shadow-[rgb(25,104,31)]'>
           <i class='bx bxl-tailwind-css  text-blue-300 text-7xl' ></i>
         </div>
 
-        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center items-center hover:cursor-pointer'>
+        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center items-center hover:bg-transparent hover:border-2 hover:cursor-pointer hover:shadow-lg hover:shadow-[rgb(25,104,31)]'>
           <i class='bx bxl-mongodb text-7xl text-green-400' ></i>
         </div>
 
-        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center hover:cursor-pointer'>
+        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center hover:cursor-pointer hover:bg-transparent hover:border-2 hover:shadow-lg hover:shadow-[rgb(25,104,31)]' >
           <i class='bx bxl-nodejs text-7xl text-green-800' ></i>
         </div>
       </div>
