@@ -1,8 +1,4 @@
 import React from "react";
-import github from "../assets/images/github.png";
-import linkedin from "../assets/images/linkedin.png";
-import twitter from "../assets/images/twitter.png";
-import instagram from "../assets/images/instagram.png";
 export default function Connect() {
     return (
         <div>
