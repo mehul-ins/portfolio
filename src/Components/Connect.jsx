@@ -13,10 +13,10 @@ export default function Connect() {
                     className=""
                     href="https://www.instagram.com/mxhul_10?igsh=bXdkaWRxcmR1cTF5"
                 >
-                   <i class='bx bxl-instagram text-[#3d444d] text-4xl hover:text-white rounded-xl hover:shadow-lg hover:bg-transparent hover:border-2 hover:shadow-[rgb(25,104,31)]' ></i>
+                   <i className='bx bxl-instagram text-[#3d444d] text-4xl hover:text-white rounded-xl hover:shadow-lg hover:bg-transparent hover:border-2 hover:shadow-[rgb(25,104,31)]' ></i>
                 </a>
                 <a className="" href=" https://x.com/mehul_vig?t=xAU4gLfRVOIwQstBnVVf7A&s=08">
-                <i class='bx bxl-twitter text-[#3d444d] text-4xl hover:text-white rounded-xl hover:shadow-lg hover:bg-transparent hover:border-2 hover:shadow-[rgb(25,104,31)]'></i>
+                <i className='bx bxl-twitter text-[#3d444d] text-4xl hover:text-white rounded-xl hover:shadow-lg hover:bg-transparent hover:border-2 hover:shadow-[rgb(25,104,31)]'></i>
                 </a>
             </div>
         </div>
