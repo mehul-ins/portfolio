@@ -27,7 +27,7 @@ export default function About() {
 
           <Card title="Volunteer"
             image={sih}
-            event="my India Hackathon"
+            event="Smart India Hackathon"
             role="Marketing executive" />
 
           <Card title="Volunteer"
@@ -53,7 +53,7 @@ export default function About() {
           <i class='bx bxl-mongodb text-7xl text-green-400' ></i>
         </div>
 
-        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center hover:cursor-pointer hover:bg-transparent hover:border-2 hover:shadow-lg hover:shadow-[rgb(25,104,31)]' >
+        <div className='h-24 rounded-xl bg-[#3d444d] w-24 m-5 flex justify-center items-center hover:cursor-pointer hover:bg-transparent hover:border-2 hover:shadow-lg hover:shadow-[rgb(25,104,31)]' >
           <i class='bx bxl-nodejs text-7xl text-green-800' ></i>
         </div>
       </div>
