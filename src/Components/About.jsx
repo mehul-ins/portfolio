@@ -27,7 +27,7 @@ export default function About() {
 
           <Card title="Volunteer"
             image={sih}
-            event="Smart India Hackathon"
+            event="my India Hackathon"
             role="Marketing executive" />
 
           <Card title="Volunteer"
