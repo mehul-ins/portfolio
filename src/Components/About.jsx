@@ -5,10 +5,10 @@ import savera from '../assets/images/savera.jpeg'
 function Card({ title, image, event, role }) {
   return (
 
-    <div className='h-96 w-80 m-5 p-2 rounded-xl bg-[#3d444d] hover:shadow-lg hover:shadow-[rgb(25,104,31)] hover:cursor-pointer flex flex-col items-center gap-3 hover:bg-transparent hover:border-2'>
+    <div className='h-96 w-80 m-5 p-3 rounded-xl bg-[#3d444d] hover:shadow-lg hover:shadow-[rgb(25,104,31)] hover:cursor-pointer flex flex-col items-center gap-3 hover:bg-transparent hover:border-2'>
       <p className='text-xl'>{title}</p>
       <img src={image} alt="sih-logo" className='h-44 rounded-xl' />
-      <p>Organisation: {event}</p>
+      <p className='text-nowrap'>Organisation: {event}</p>
       <p>Role: {role}</p>
       <button className='bg-[rgb(25,104,31)] rounded-xl hover:bg-transparent hover:border-2 hover:cursor-pointer p-3 '>Show More</button>
     </div>
