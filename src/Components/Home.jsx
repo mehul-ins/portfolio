@@ -1,5 +1,6 @@
 import React from "react";
-import image from '../assets/images/profile.jpeg'
+// import image from '../assets/images/profile.jpeg'
+import image from '../assets/images/progile.jpeg'
 export default function Home() {
   return (
     <>
