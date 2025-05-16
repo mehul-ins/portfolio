@@ -5,7 +5,6 @@ import savera from '../assets/images/savera.jpeg';
 import glitch from '../assets/images/Glitch.jpg';
 
 
-// Add this to your global CSS file
 const modalAnimationStyle = `
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
@@ -45,7 +44,6 @@ function Card({ title, image, event, role, delay, experience }) {
     };
   }, [delay]);
 
-  // Prevent body scrolling when modal is open
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = 'hidden';
@@ -86,14 +84,12 @@ function Card({ title, image, event, role, delay, experience }) {
         </div>
       </div>
 
-      {/* Modal/Popup */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
           <div 
             className="relative bg-gray-900 rounded-lg w-full max-w-3xl animate-fadeIn overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-[rgb(25,104,31)] transition-colors duration-300"
@@ -105,7 +101,6 @@ function Card({ title, image, event, role, delay, experience }) {
             </button>
             
             <div className="flex flex-col md:flex-row">
-              {/* Image section */}
               <div className="md:w-1/2">
                 <div className="relative h-64 md:h-full">
                   <img 
@@ -117,7 +112,6 @@ function Card({ title, image, event, role, delay, experience }) {
                 </div>
               </div>
               
-              {/* Content section */}
               <div className="p-6 md:w-1/2">
                 <span className="inline-block px-3 py-1 bg-[rgb(25,104,31)]/20 text-[rgb(25,104,31)] rounded-full text-sm font-medium mb-2">
                   {title}

@@ -6,7 +6,6 @@ export default function Home() {
   const imageRef = useRef(null);
   
   useEffect(() => {
-    // Simple fade-in animation
     const title = titleRef.current;
     const img = imageRef.current;
     
