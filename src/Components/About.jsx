@@ -4,6 +4,8 @@ import acm from '../assets/images/ACM.jpeg';
 import savera from '../assets/images/savera.jpeg';
 import glitch from '../assets/images/Glitch.jpg';
 import Hacked from '../assets/images/Hacked.jpg';
+import Stelmar from '../assets/images/Stelmar.jpg';
+
 
 
 
@@ -278,6 +280,14 @@ export default function About() {
               image={Hacked} 
               event="Hacked" 
               role="Volunteer"
+              experience="In Hacked 3.0, I wrote structured content for the students' handbook, developed judging rubrics, and created email templates for participants to manage the event flow effectively."
+              delay={500}
+            />
+             <Card 
+              title="Creatives" 
+              image={Stelmar} 
+              event="Stelmar" 
+              role="UI/UX and Design Committee"
               experience="In Hacked 3.0, I wrote structured content for the students' handbook, developed judging rubrics, and created email templates for participants to manage the event flow effectively."
               delay={500}
             />
