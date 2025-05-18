@@ -3,7 +3,7 @@ import sih from '../assets/images/sih.jpg';
 import acm from '../assets/images/ACM.jpeg';
 import savera from '../assets/images/savera.jpeg';
 import glitch from '../assets/images/Glitch.jpg';
-import Hacked from '../assets/images/hacked.jpg';
+import Hacked from '../assets/images/Hacked.jpg';
 
 
 
