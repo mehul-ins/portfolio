@@ -3,6 +3,8 @@ import sih from '../assets/images/sih.jpg';
 import acm from '../assets/images/ACM.jpeg';
 import savera from '../assets/images/savera.jpeg';
 import glitch from '../assets/images/Glitch.jpg';
+import Hacked from '../assets/images/hacked.jpg';
+
 
 
 const modalAnimationStyle = `
@@ -143,11 +145,18 @@ function Card({ title, image, event, role, delay, experience }) {
                         <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Technical Workshops</span>
                       </>
                     )}
-                    {title === "Volunteer" && event === "Savera NGO" && (
+                     {title === "Experience" && event === "Glitch" && (
                       <>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Teaching</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Web Design</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Fundraising</span>
+                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Project Management</span>
+                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Content Creation</span>
+                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Technical Workshops</span>
+                      </>
+                    )}
+                     {title === "Experience" && event === "Hacked" && (
+                      <>
+                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Project Management</span>
+                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Content Creation</span>
+                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Technical Workshops</span>
                       </>
                     )}
                   </div>
@@ -242,7 +251,7 @@ export default function About() {
               title="Experience" 
               image={acm} 
               event="ACM BMU" 
-              role="EC member"
+              role="EC Member"
               experience="As a member of the ACM Design Team, I contributed to designing posters, standees, mini-standees, lanyards, presentation templates, website UIs, and Instagram posts to enhance event branding and engagement. I also participated in event management and operations, developing my skills in graphic design, UI/UX, and coordination while working with a creative team."
               delay={300}
             />
@@ -250,7 +259,7 @@ export default function About() {
               title="Experience" 
               image={glitch} 
               event="Glitch" 
-              role="OC member"
+              role="OC Member"
               experience="At Glitch, the annual technical fest, I managed design work, ensured smooth event operations, and hosted the opening ceremony, contributing to a successful and engaging experience for participants.
 
 "
@@ -264,7 +273,17 @@ export default function About() {
               experience="At Savera, an NGO, I taught students basic subjects, engaged them through playful activities, and provided support in every possible way to create a positive and nurturing environment."
               delay={500}
             />
+             <Card 
+              title="Content Team" 
+              image={Hacked} 
+              event="Hacked" 
+              role="Volunteer"
+              experience="In Hacked 3.0, I wrote structured content for the students' handbook, developed judging rubrics, and created email templates for participants to manage the event flow effectively."
+              delay={500}
+            />
+
           </div>
+
           
           <h2 className="text-white text-3xl font-bold mb-2">Tech Stack</h2>
           <div className="w-16 h-1 bg-[rgb(25,104,31)] mb-10"></div>
