@@ -6,15 +6,11 @@ import glitch from '../assets/images/Glitch.jpg';
 import Hacked from '../assets/images/Hacked.jpg';
 import Stelmar from '../assets/images/Stelmar.jpg';
 
-
-
-
 const modalAnimationStyle = `
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
-
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
 }
@@ -36,11 +32,11 @@ function Card({ title, image, event, role, delay, experience }) {
         }
       });
     }, { threshold: 0.1 });
-    
+
     if (cardRef.current) {
       observer.observe(cardRef.current);
     }
-    
+
     return () => {
       if (cardRef.current) {
         observer.unobserve(cardRef.current);
@@ -54,7 +50,7 @@ function Card({ title, image, event, role, delay, experience }) {
     } else {
       document.body.style.overflow = 'auto';
     }
-    
+
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -62,6 +58,8 @@ function Card({ title, image, event, role, delay, experience }) {
 
   return (
     <>
+      <style>{modalAnimationStyle}</style>
+
       <div 
         ref={cardRef}
         className="w-full max-w-xs mx-auto transition-all duration-700 opacity-0 translate-y-8 bg-transparent border border-gray-800 rounded-lg overflow-hidden hover:border-[rgb(25,104,31)] hover:shadow-lg hover:shadow-[rgb(25,104,31)]/20"
@@ -89,9 +87,9 @@ function Card({ title, image, event, role, delay, experience }) {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 overflow-y-auto">
           <div 
-            className="relative bg-gray-900 rounded-lg w-full max-w-3xl animate-fadeIn overflow-hidden"
+            className="relative bg-gray-900 rounded-lg w-full max-w-3xl animate-fadeIn overflow-hidden max-h-[95vh] md:max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -103,17 +101,14 @@ function Card({ title, image, event, role, delay, experience }) {
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
-            
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-1/2">
-                <div className="relative h-64 md:h-full">
-                  <img 
-                    src={image} 
-                    alt={title} 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent md:bg-gradient-to-r"></div>
-                </div>
+
+            <div className="flex flex-col md:flex-row overflow-y-auto max-h-[90vh]">
+              <div className="md:w-1/2 h-64 md:h-auto">
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               <div className="p-6 md:w-1/2">
@@ -133,32 +128,18 @@ function Card({ title, image, event, role, delay, experience }) {
                 <div className="border-t border-gray-700 pt-4">
                   <h4 className="text-lg font-medium text-white mb-2">Skills Developed</h4>
                   <div className="flex flex-wrap gap-2">
-                    {title === "Volunteer" && event === "Smart India Hackathon" && (
+                    {(title === "Volunteer" && event === "Smart India Hackathon") && (
                       <>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Marketing</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Team Leadership</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Event Management</span>
+                        <Skill name="Marketing" />
+                        <Skill name="Team Leadership" />
+                        <Skill name="Event Management" />
                       </>
                     )}
-                    {title === "Experience" && event === "ACM BMU" && (
+                    {(title === "Experience" && ["ACM BMU", "Glitch", "Hacked"].includes(event)) && (
                       <>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Project Management</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Content Creation</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Technical Workshops</span>
-                      </>
-                    )}
-                     {title === "Experience" && event === "Glitch" && (
-                      <>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Project Management</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Content Creation</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Technical Workshops</span>
-                      </>
-                    )}
-                     {title === "Experience" && event === "Hacked" && (
-                      <>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Project Management</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Content Creation</span>
-                        <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">Technical Workshops</span>
+                        <Skill name="Project Management" />
+                        <Skill name="Content Creation" />
+                        <Skill name="Technical Workshops" />
                       </>
                     )}
                   </div>
@@ -172,10 +153,13 @@ function Card({ title, image, event, role, delay, experience }) {
   );
 }
 
+const Skill = ({ name }) => (
+  <span className="px-2 py-1 bg-gray-800 rounded-md text-sm text-gray-300">{name}</span>
+);
 
 function TechIcon({ icon, color }) {
   const iconRef = useRef(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -186,11 +170,11 @@ function TechIcon({ icon, color }) {
         }
       });
     }, { threshold: 0.1 });
-    
+
     if (iconRef.current) {
       observer.observe(iconRef.current);
     }
-    
+
     return () => {
       if (iconRef.current) {
         observer.unobserve(iconRef.current);
@@ -210,7 +194,7 @@ function TechIcon({ icon, color }) {
 
 export default function About() {
   const sectionRef = useRef(null);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -221,11 +205,11 @@ export default function About() {
         }
       });
     }, { threshold: 0.1 });
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -239,65 +223,30 @@ export default function About() {
         <div ref={sectionRef} className="opacity-0 translate-y-8 transition-all duration-700">
           <h2 className="text-white text-3xl font-bold mb-2">Experience</h2>
           <div className="w-16 h-1 bg-[rgb(25,104,31)] mb-10"></div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            <Card 
-              title="Volunteer" 
-              image={sih} 
-              event="Smart India Hackathon" 
-              role="Marketing Executive"
-              experience="During the SIH Hackathon, I managed judge coordination and public relations, ensuring smooth operations for team presentations. Additionally, I focused on engaging and encouraging students to participate through effective marketing and communication."
-              delay={100}
-            />
-            <Card 
-              title="Experience" 
-              image={acm} 
-              event="ACM BMU" 
-              role="EC Member"
-              experience="As a member of the ACM Design Team, I contributed to designing posters, standees, mini-standees, lanyards, presentation templates, website UIs, and Instagram posts to enhance event branding and engagement. I also participated in event management and operations, developing my skills in graphic design, UI/UX, and coordination while working with a creative team."
-              delay={300}
-            />
-             <Card 
-              title="Experience" 
-              image={glitch} 
-              event="Glitch" 
-              role="OC Member"
-              experience="At Glitch, the annual technical fest, I managed design work, ensured smooth event operations, and hosted the opening ceremony, contributing to a successful and engaging experience for participants.
+            <Card title="Volunteer" image={sih} event="Smart India Hackathon" role="Marketing Executive" delay={100}
+              experience="During the SIH Hackathon, I managed judge coordination and public relations, ensuring smooth operations for team presentations. Additionally, I focused on engaging and encouraging students to participate through effective marketing and communication." />
 
-"
-              delay={300}
-            />
-            <Card 
-              title="Volunteer" 
-              image={savera} 
-              event="Savera NGO" 
-              role="Volunteer"
-              experience="At Savera, an NGO, I taught students basic subjects, engaged them through playful activities, and provided support in every possible way to create a positive and nurturing environment."
-              delay={500}
-            />
-             <Card 
-              title="Content Team" 
-              image={Hacked} 
-              event="Hacked" 
-              role="Volunteer"
-              experience="In Hacked 3.0, I wrote structured content for the students' handbook, developed judging rubrics, and created email templates for participants to manage the event flow effectively."
-              delay={500}
-            />
-             <Card 
-              title="Creatives" 
-              image={Stelmar} 
-              event="Stelmar" 
-              role="UI/UX and Design Committee"
-              experience="In Hacked 3.0, I wrote structured content for the students' handbook, developed judging rubrics, and created email templates for participants to manage the event flow effectively."
-              delay={500}
-            />
+            <Card title="Experience" image={acm} event="ACM BMU" role="EC Member" delay={300}
+              experience="As a member of the ACM Design Team, I contributed to designing posters, standees, mini-standees, lanyards, presentation templates, website UIs, and Instagram posts to enhance event branding and engagement. I also participated in event management and operations, developing my skills in graphic design, UI/UX, and coordination while working with a creative team." />
 
+            <Card title="Experience" image={glitch} event="Glitch" role="OC Member" delay={300}
+              experience="At Glitch, the annual technical fest, I managed design work, ensured smooth event operations, and hosted the opening ceremony, contributing to a successful and engaging experience for participants." />
+
+            <Card title="Volunteer" image={savera} event="Savera NGO" role="Volunteer" delay={500}
+              experience="At Savera, an NGO, I taught students basic subjects, engaged them through playful activities, and provided support in every possible way to create a positive and nurturing environment." />
+
+            <Card title="Content Team" image={Hacked} event="Hacked" role="Volunteer" delay={500}
+              experience="In Hacked 3.0, I wrote structured content for the students' handbook, developed judging rubrics, and created email templates for participants to manage the event flow effectively." />
+
+            <Card title="Creatives" image={Stelmar} event="Stelmar" role="UI/UX and Design Committee" delay={500}
+              experience="In Stelmar, I was part of the UI/UX and Design Committee where I contributed to creative assets and maintained a consistent visual identity for the event." />
           </div>
 
-          
           <h2 className="text-white text-3xl font-bold mb-2">Tech Stack</h2>
           <div className="w-16 h-1 bg-[rgb(25,104,31)] mb-10"></div>
-          
+
           <div className="flex flex-wrap justify-center gap-6">
             <TechIcon icon="bxl-react" color="text-blue-400" />
             <TechIcon icon="bxl-tailwind-css" color="text-blue-300" />
