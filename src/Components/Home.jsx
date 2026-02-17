@@ -1,62 +1,83 @@
-import React, { useEffect, useRef } from "react";
-import image from '../assets/images/progile.jpeg';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Home() {
-  const titleRef = useRef(null);
-  const imageRef = useRef(null);
-  
-  useEffect(() => {
-    const title = titleRef.current;
-    const img = imageRef.current;
-    
-    if (title && img) {
-      title.style.opacity = '0';
-      img.style.opacity = '0';
-      
-      setTimeout(() => {
-        title.style.opacity = '1';
-        title.style.transform = 'translateY(0)';
-      }, 300);
-      
-      setTimeout(() => {
-        img.style.opacity = '1';
-        img.style.transform = 'translateY(0)';
-      }, 600);
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      }
     }
-  }, []);
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } }
+  };
 
   return (
-    <div id="home" className="min-h-screen flex items-center bg-black">
-      <div className="max-w-6xl mx-auto px-6 w-full py-20">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div 
-            ref={titleRef} 
-            className="transition-all duration-1000 transform translate-y-10"
+    <section id="home" className="min-h-screen flex flex-col justify-center relative px-6 md:px-12">
+      <div className="grid-background" />
+
+      {/* ── Technical Markers ── */}
+      <div className="absolute top-24 left-6 md:left-12 flex flex-col gap-1">
+        <span className="marker">[ CORE_ENGINE_ACTIVE ]</span>
+        <span className="marker">[ 28.4595° N, 77.0266° E ]</span>
+      </div>
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-7xl mx-auto w-full"
+      >
+        <motion.p variants={item} className="mono text-[var(--accent)] text-xs md:text-sm mb-4 tracking-[0.2em]">
+          // FULL_STACK_ENGINEER_PORTFOLIO_V2.0
+        </motion.p>
+
+        <div className="relative mb-8">
+          <motion.h1
+            variants={item}
+            className="heading-huge text-white mb-2"
           >
-            <p className="text-[rgb(25,104,31)] text-lg font-light tracking-wider mb-2">WELCOME</p>
-            <h1 className="text-white text-4xl sm:text-6xl font-bold mb-4">
-              Hi, I'm <span className="text-[rgb(25,104,31)]">Mehul Vig</span>
-            </h1>
-            <p className="text-white/70 text-xl sm:text-2xl font-light mb-8">
-              Frontend Web Developer
-            </p>
-          </div>
-          
-          <div 
-            ref={imageRef} 
-            className="transition-all duration-1000 transform translate-y-10"
+            Mehul
+          </motion.h1>
+          <motion.h1
+            variants={item}
+            className="heading-huge text-outline"
           >
-            <div className="relative">
-              <div className="absolute inset-0 border-2 border-[rgb(25,104,31)] rounded-lg transform translate-x-4 translate-y-4"></div>
-              <img 
-                src={image} 
-                alt="Mehul Vig" 
-                className="h-64 w-64 sm:h-80 sm:w-80 object-cover rounded-lg shadow-lg"
-              />
+            Vig.
+          </motion.h1>
+        </div>
+
+        <motion.div variants={item} className="max-w-xl">
+          <p className="text-lg md:text-xl text-white/60 font-medium leading-relaxed mb-8">
+            Building digital systems with mechanical precision. Focusing on <span className="text-white">scalable architecture</span> and <span className="text-white">high-performance frontend execution</span>.
+          </p>
+
+          <div className="flex flex-wrap gap-6 items-center">
+            <button
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-3 bg-[var(--accent)] text-black font-bold uppercase tracking-wider text-xs hover:scale-105 transition-transform"
+            >
+              Explore Schematics
+            </button>
+            <div className="flex flex-col gap-1">
+              <span className="marker">STATUS: AVAILABLE_FOR_COLLAB</span>
+              <span className="marker">LOCAL_TIME: {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
             </div>
           </div>
-        </div>
+        </motion.div>
+      </motion.div>
+
+      {/* ── Bottom Accent Line ── */}
+      <div className="absolute bottom-12 left-0 w-full px-6 md:px-12 flex items-center gap-4">
+        <div className="h-px bg-white/10 flex-1" />
+        <span className="marker">INITIATING_SEQUENCE_01</span>
       </div>
-    </div>
+    </section>
   );
 }

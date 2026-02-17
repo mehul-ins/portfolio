@@ -1,67 +1,49 @@
-import React, { useState } from "react";
-
-function SocialIcon({ icon, href, delay }) {
-  const [isHovered, setIsHovered] = useState(false);
-  
-  return (
-    <a 
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`transition-all duration-500 delay-${delay}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="relative group">
-        <div className={`absolute inset-0 bg-[rgb(25,104,31)] rounded-full transform transition-all duration-300 ${isHovered ? 'scale-100 opacity-20' : 'scale-90 opacity-0'}`}></div>
-        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gray-900 border border-gray-800 group-hover:border-[rgb(25,104,31)] transition-all duration-300">
-          <i className={`bx ${icon} text-2xl text-gray-400 group-hover:text-white transition-colors duration-300`}></i>
-        </div>
-      </div>
-    </a>
-  );
-}
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Connect() {
   return (
-    <div id="connect" className="bg-black py-20">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-white text-3xl font-bold mb-2">Connect With Me</h2>
-        <div className="w-16 h-1 bg-[rgb(25,104,31)] mx-auto mb-10"></div>
-        
-        <p className="text-gray-400 max-w-md mx-auto mb-10">
-          Feel free to reach out for collaborations or just a friendly chat
-        </p>
-        
-        <div className="flex justify-center gap-6 mb-10">
-          <SocialIcon 
-            icon="bxl-github" 
-            href="https://github.com/mehul-ins"
-            delay="100"
-          />
-          <SocialIcon 
-            icon="bxl-linkedin-square" 
-            href="https://www.linkedin.com/in/mehul-vig-828842312/"
-            delay="200"
-          />
-          <SocialIcon 
-            icon="bxl-instagram" 
-            href="https://www.instagram.com/mxhul_10?igsh=bXdkaWRxcmR1cTF5"
-            delay="300"
-          />
-          <SocialIcon 
-            icon="bxl-twitter" 
-            href="https://x.com/mehul_vig?t=xAU4gLfRVOIwQstBnVVf7A&s=08"
-            delay="400"
-          />
+    <section id="connect" className="py-24 px-6 md:px-12 bg-white/[0.01] border-t border-white/5">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
+        <div>
+          <h2 className="text-5xl font-black uppercase tracking-tighter mb-4">Initialize<br />Contact_</h2>
+          <span className="marker">TRANSMISSION_READY.CONNECT_VIA_CORE_CHANNELS</span>
         </div>
-        
-        <div className="border-t border-gray-800 pt-8">
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Mehul Vig. All rights reserved.
-          </p>
+
+        <div className="space-y-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="space-y-1">
+              <span className="marker">EMAIL_CHANNEL</span>
+              <p className="mono text-sm font-bold hover:text-[var(--accent)] transition-colors">
+                <a href="mailto:mehul.vig.24cse@bmu.edu">mehul.vig.24cse@bmu.edu</a>
+              </p>
+            </div>
+            <div className="space-y-1">
+              <span className="marker">COMMS_LINK</span>
+              <p className="mono text-sm font-bold hover:text-[var(--accent)] transition-colors">
+                <a href="tel:+919873288775">+91 9873288775</a>
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-12 border-t border-white/5 flex flex-wrap gap-8">
+            {['GITHUB', 'LINKEDIN', 'INSTAGRAM', 'TWITTER'].map(plat => (
+              <a
+                key={plat}
+                href={`#${plat.toLowerCase()}`}
+                className="mono text-[10px] font-bold tracking-[0.4em] text-white/20 hover:text-[var(--accent)] transition-all hover:tracking-[0.6em]"
+              >
+                {plat}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      <div className="max-w-7xl mx-auto mt-32 flex justify-between items-center opacity-20">
+        <span className="marker text-[8px]">© 2026_MV.SYS.ARCH</span>
+        <span className="marker text-[8px]">ENCRYPTED_CONNECTION</span>
+      </div>
+    </section>
   );
 }

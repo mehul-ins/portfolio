@@ -1,24 +1,128 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-[#0d1116];
+:root {
+  --accent: #10b981;
+  --bg-darker: #050505;
+  --bg-card: #0a0a0a;
+  --border-dim: rgba(255, 255, 255, 0.04);
+  --border-accent: rgba(16, 185, 129, 0.2);
 }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: white;
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-darker);
 }
-.my-font {
-  font-family: "Source Code Pro", monospace;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Technical Grid Background ── */
+.grid-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
+
+.grid-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, var(--bg-darker) 80%);
+}
+
+.mono {
+  font-family: 'Source Code Pro', monospace;
+}
+
+/* ── Technical Markers ── */
+.marker {
+  @apply mono text-[10px] text-[var(--accent)] opacity-40 uppercase;
+}
+
+.blueprint-card {
+  @apply bg-[#0a0a0a] border border-white/[0.04] rounded-sm transition-all duration-300;
+  position: relative;
+}
+
+.blueprint-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid var(--accent);
+  border-left: 1px solid var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.blueprint-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Typography ── */
+.heading-huge {
+  @apply text-6xl md:text-9xl font-black tracking-tighter uppercase;
+  line-height: 0.8;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+/* ── Marquee (kept but refined) ── */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(calc(-100% / 3));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
 }
